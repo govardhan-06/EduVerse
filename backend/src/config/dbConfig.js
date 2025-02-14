@@ -1,11 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
+import dotenv from 'dotenv';
+dotenv.config();
 
-const supabaseClient=()=>{
-    const SUPABASE_DB_URL=process.env.SUPABASE_DB_URL;
-    const SUPABASE_DB_KEY=process.env.SUPABASE_DB_KEY;
+const supabaseClient=(SUPABASE_DB_KEY,SUPABASE_DB_URL)=>{
     try{
         const client=createClient(SUPABASE_DB_URL, SUPABASE_DB_KEY);
-        console.log('Supabase client created successfully');
         return client;
     }
     catch(err){
@@ -13,4 +12,9 @@ const supabaseClient=()=>{
     }
 }
 
-export default supabaseClient;
+const SUPABASE_DB_URL=process.env.SUPABASE_DB_URL;
+const SUPABASE_DB_KEY=process.env.SUPABASE_DB_KEY;
+
+const supabase=supabaseClient(SUPABASE_DB_KEY,SUPABASE_DB_URL);
+
+export default supabase;

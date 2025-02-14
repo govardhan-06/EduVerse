@@ -3,11 +3,11 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';  
 import router from './src/microservices/auth/routes/authService_routes.js';  
+dotenv.config();
 
 const app=express();
 app.use(cors());
 app.use(bodyParser.json());
-dotenv.config();
 
 app.use('/api/v1/auth',router);
 

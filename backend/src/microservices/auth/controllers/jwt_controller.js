@@ -11,7 +11,6 @@ const signUp = async (req, res) => {
         res.status(201).json({ token });
     }
     catch(err){
-        console.log("The error: "+err);
         res.status(500).json({ error: err.message });
     }
 };
