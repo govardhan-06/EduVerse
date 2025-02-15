@@ -19,6 +19,7 @@ const addUser_wallet=async (user)=>{
     console.log('User added successfully');
     return data[0];
 };
+
 const getUserByEmail=async (email)=>{
     const { data, error } = await supabase
         .from('usersAuth')
