@@ -2,12 +2,12 @@ import express from 'express';
 import {signUp,signIn} from '../controllers/jwt_controller.js';
 import { generateNonce, verifySignature } from '../controllers/web3Auth_controller.js';
 
-const router = express.Router();
+const authRouter = express.Router();
 
-router.post('/signup', signUp);
-router.post('/signin', signIn);
+authRouter.post('/signup', signUp);
+authRouter.post('/signin', signIn);
 
-router.post('/generate-nonce', generateNonce);
-router.post('/verify-sign', verifySignature);
+authRouter.post('/generate-nonce', generateNonce);
+authRouter.post('/verify-sign', verifySignature);
 
-export default router;
+export default authRouter;
