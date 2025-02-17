@@ -8,13 +8,13 @@ export default function Loading() {
         <Image
           src="/images/logo.png"
           alt="EduVerse Logo"
-          width={120}
-          height={120}
+          width={150}
+          height={150}
           className="animate-pulse"
         />
       
         <div className="mt-8">
-          <div className="w-12 h-12 rounded-full border-4 border-primary/30 border-t-primary animate-spin" />
+          <p className="font-sans text-xl">Loading Space...</p>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
-import SpacesSection from "../components/SpacesSection";
+import SpacesSection from "@/components/SpacesSection";
 import Carousel from "../components/Carousel";
-import Navbar from "@/components/Navbar";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (

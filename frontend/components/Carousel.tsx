@@ -82,7 +82,7 @@ export default function Carousel() {
                     src={slide.image}
                     alt={slide.title}
                     layout="fill"
-                    objectFit="contain"
+                    style={{ objectFit: 'contain' }}
                     priority
                   />
                 </div>

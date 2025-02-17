@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LoadingProvider } from "../context/LoadingContext";
 
 export const metadata: Metadata = {
   title: "EduVerse",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="h-full">
+        <LoadingProvider>
         {children}
+        </LoadingProvider>
       </body>
     </html>
   );

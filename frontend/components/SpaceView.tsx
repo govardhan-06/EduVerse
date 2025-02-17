@@ -1,7 +1,7 @@
+'use client';
 import React from "react";
-import { useState } from "react";
 import Image from "next/image";
-import Loading from "./Loading";
+import { useLoading } from "../context/LoadingContext";
 
 interface SpaceViewProps {
     space: {
@@ -12,14 +12,11 @@ interface SpaceViewProps {
 }
 
 export default function SpaceView({ space }: SpaceViewProps) {
-    const [loading, setLoading] = useState(false);
+    const { setIsLoading } = useLoading();
     const handleClick = () => {
-        setLoading(true);
+        setIsLoading(true);
         console.log(`Clicked on space ${space.spaceID}`);
     };
-    if(loading) {
-        return <Loading/>
-    }
     return (
         <div onClick={handleClick}
         className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -27,8 +24,8 @@ export default function SpaceView({ space }: SpaceViewProps) {
             <Image 
                 src={space.thumbnail} 
                 alt={space.name}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: 'cover' }}
                 className="rounded-t-lg"
             />
             </div>
