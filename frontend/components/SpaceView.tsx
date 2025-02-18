@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { useLoading } from "../context/LoadingContext";
+import { useRouter } from "next/navigation";
 
 interface SpaceViewProps {
     space: {
@@ -13,9 +14,16 @@ interface SpaceViewProps {
 
 export default function SpaceView({ space }: SpaceViewProps) {
     const { setIsLoading } = useLoading();
-    const handleClick = () => {
+    const router = useRouter();
+    const handleClick = async () => {
         setIsLoading(true);
-        console.log(`Clicked on space ${space.spaceID}`);
+        const encodedURL=encodeURIComponent(space.thumbnail);
+
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        router.push(`/${encodedURL}`);
+
+        setTimeout(() => setIsLoading(false), 250);
     };
     return (
         <div onClick={handleClick}
